@@ -179,8 +179,10 @@ try:
     time.sleep(2)
 
     if 'Login' in driver.title:
-        driver.find_element(By.CLASS_NAME, 'login-username').send_keys('admin')
-        driver.find_element(By.CLASS_NAME, 'login-password').send_keys('admin')
+        username_field = driver.find_element(By.CLASS_NAME, 'login-username')
+        username_field.clear()
+        username_field.send_keys(USERNAME)
+        driver.find_element(By.CLASS_NAME, 'login-password').send_keys(PASSWORD)
         driver.find_element(By.CLASS_NAME, 'login-remember').click()
         driver.find_element(By.TAG_NAME, 'button').click()
 
